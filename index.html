@@ -16,6 +16,9 @@
             height: 100vh;
             font-family: 'Courgette', cursive;
         }
+        .container {
+            background-color: #f97289;
+        }
         .question {
             text-align: center;
             /* margin-bottom: 1em; */
@@ -58,10 +61,14 @@
         </div>
     </div>
     <script>
+        var container = document.querySelector('.container')
         var question = document.querySelector('.question');
         var image = document.querySelector('#image');
         var yes = document.querySelector('.yes');
         var no = document.querySelector('.no');
+
+        var containerRect = container.getBoundingClientRect();
+        var noRect = no.getBoundingClientRect();
 
         yes.addEventListener('click', () => {
             image.src="./gif/result.gif";
@@ -74,11 +81,11 @@
         })
 
         no.addEventListener('mouseover', () => {
-            const left = Math.floor(Math.random() * (400 - 100 + 1));
-            const top = Math.floor(Math.random() * (400 - 200 + 1)) + 100;
+            const left = Math.floor(Math.random() * (containerRect.width - noRect.width)) + 1;
+            const top = Math.floor(Math.random() * (containerRect.height - noRect.height)) + 1;
 
             no.style.top = -top + "px";
-            no.style.left = left + "px";
+            no.style.right = left + "px";
 
             image.src="./gif/reject.gif";
         })
