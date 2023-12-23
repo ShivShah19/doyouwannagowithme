@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Playfair+Display:ital,wght@0,500;1,400&family=Poppins:wght@500&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            /* background-color: pink; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Courgette', cursive;
+        }
+        .question {
+            text-align: center;
+            /* margin-bottom: 1em; */
+            font-size: 2em;
+        }
+        img {
+            width: 15em;
+            height: 15em;
+            margin: 2em;
+            /* mix-blend-mode:multiply; */
+        }
+        button {
+            background-color: #f97289;
+            font-size: 1.2em;
+            color: white;
+            border: 3px solid #fb032d;
+            font-weight: 550;
+            padding: 0.6em 0.8em;
+            border-radius: 0.5em;
+            cursor: pointer;
+        }
+
+        .button {
+            display: flex;
+            justify-content: space-around;
+        }
+        .no {
+            position: relative;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="question">Do Wanna Go With Me ?</div>
+        <img src="./gif/ask.gif" alt="" id="image">
+        <div class="button">
+            <button class="yes">YES</button>
+            <button class="no">NO</button>
+        </div>
+    </div>
+    <script>
+        var question = document.querySelector('.question');
+        var image = document.querySelector('#image');
+        var yes = document.querySelector('.yes');
+        var no = document.querySelector('.no');
+
+        yes.addEventListener('click', () => {
+            image.src="./gif/result.gif";
+
+            no.style.top = 0 + "px";
+            no.style.left = 0 + "px";
+
+            question.innerHTML = "Yeeeeyyy!!"
+
+        })
+
+        no.addEventListener('mouseover', () => {
+            const left = Math.floor(Math.random() * (400 - 100 + 1));
+            const top = Math.floor(Math.random() * (400 - 200 + 1)) + 100;
+
+            no.style.top = -top + "px";
+            no.style.left = left + "px";
+
+            image.src="./gif/reject.gif";
+        })
+    </script>
+</body>
+</html>
