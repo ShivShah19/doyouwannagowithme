@@ -76,6 +76,9 @@
             question.innerHTML = "Yeeeeyyy!!"
 
         })
+        yes.addEventListener('mouseover', () => {
+            image.src="./gif/result.gif";
+        })
 
         no.addEventListener('mouseover', () => {
             const left = Math.floor(Math.random() * (containerRect.width - noRect.width)) + 1;
